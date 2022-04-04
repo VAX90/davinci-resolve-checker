@@ -144,15 +144,6 @@ if found_AMD_GPU:
         print(local_str["missing opencl driver"])
         exit(1)
 
-    andgpu_pro_libgl_version = subprocess.run("expac -Q '%v' amdgpu-pro-libgl", shell=True, capture_output=True, text=True).stdout.rstrip('\n').partition("-")[0]
-    opencl_amd_version = subprocess.run("expac -Q '%v' opencl-amd", shell=True, capture_output=True, text=True).stdout.rstrip('\n').partition("-")[0]
-    index_of_last_dot = opencl_amd_version.rfind(".")
-    opencl_amd_version = opencl_amd_version[:index_of_last_dot] + "_" + opencl_amd_version[index_of_last_dot+1:]
-    opencl_amd_version = opencl_amd_version.replace(".50002","")
-
-    if opencl_amd_version != andgpu_pro_libgl_version:
-        print(local_str["opencl-amd and progl versions mismatch"]  % (opencl_amd_version, andgpu_pro_libgl_version))
-
     print(local_str["good to run DR"])
 
 if found_NVIDIA_GPU:
