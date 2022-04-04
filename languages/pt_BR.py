@@ -17,7 +17,6 @@ local_str = {
     "amd gpu binded to vfio-pci": "Sua GPU AMD está vinculada a vfio-pci, interrompendo as verificações.",
     "nvidia gpu binded to vfio-pci": "Sua GPU NVIDIA está vinculada a  vfio-pci, interrompendo as verificações.",
     "only intel gpu, cannot run DR": "Você só possui GPU Intel. Neste momento, Davinci Resolve não pode usar GPUs Intel para OpenCL. Você não pode rodar o Davinci Resolve. Veja (em inglês): https://forum.blackmagicdesign.com/viewtopic.php?f=21&t=81579",
-    "mixed intel and amd gpus": "Não encontrei ainda uma configuração para laptops com placas Intel + AMD. Você encontrou?",
     "set primary display to PCIE": "Sua GPU primária é Intel. Vá nas configurações UEFI e defina o display principal como PCIE. Caso contrário, não poderá usar DaVinci Resolve (eu não testei).",
     "switch from radeon driver to amdgpu": "Você está usando driver RADEON. Mude para amdgpu como descrito aqui (em inglês): https://wiki.archlinux.org/title/AMDGPU#Enable_Southern_Islands_(SI)_and_Sea_Islands_(CIK)_support. Caso contrário, não poderá rodar o Davinci Resolve",
     "no support for amd driver, cannot run DR": "Sua GPU só suporta driver RADEON. O DaVinci Resolve requer amdgpu progl, que só funciona com amdgpu driver. Você não pode rodar o DaVinci Resolve.",

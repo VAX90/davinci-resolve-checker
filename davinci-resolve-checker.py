@@ -115,10 +115,7 @@ if not found_AMD_GPU and not found_NVIDIA_GPU and found_INTEL_GPU:
 
 if found_AMD_GPU:
     if found_INTEL_GPU:
-        if chassis_type == 'Notebook' or chassis_type == 'Laptop':
-            print(local_str["mixed intel and amd gpus"])
-            exit(1)
-        elif GL_VENDOR == "Intel":
+        if GL_VENDOR == "Intel":
             print(local_str["set primary display to PCIE"])
             exit(1)
 
