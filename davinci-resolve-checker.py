@@ -6,6 +6,7 @@ import subprocess
 import local_strings
 from pylspci.parsers import VerboseParser
 import pickle
+import json
 
 parser = argparse.ArgumentParser(description="Davinci Resolve checker")
 parser.add_argument(
@@ -61,6 +62,22 @@ GL_VENDOR = subprocess.run('glxinfo | grep "OpenGL vendor string" | cut -f2 -d":
 print(local_str["opengl vendor"], GL_VENDOR)
 # By GL_VENDOR we can distinguish not only OpenGL Open/Pro implementations, but also a primary GPU in use (kinda).
 # See https://stackoverflow.com/questions/19985131/how-identify-the-primary-video-card-on-linux-programmatically for more information.
+
+print("clinfo detected platforms and devices:")
+clinfo_data = json.loads(subprocess.run('clinfo --json', shell=True, capture_output=True, text=True).stdout.strip())
+found_ready_cl_gpu = False
+cl_platform_index = len(clinfo_data["platforms"]) - 1
+while cl_platform_index >= 0:
+    number_of_devices = len(clinfo_data["devices"][cl_platform_index]['online'])
+    platform_name = clinfo_data["platforms"][cl_platform_index]['CL_PLATFORM_NAME']
+    print("\t" + platform_name + " (number of devices: " + str(number_of_devices) + ")")
+    if platform_name != "Clover" and number_of_devices > 0:
+        found_ready_cl_gpu = True
+    cl_platform_index -= 1
+
+if not found_ready_cl_gpu:
+    print("Not found opencl platforms with appropriate GPUs. Check that you have installed corresponding driver. Otherwise you cannot run DR.")
+    exit(1)
 
 print("")  # Empty line, to separate verdict from configuration info.
 
