@@ -124,7 +124,7 @@ if found_AMD_GPU:
         print(local_str["not running amdgpu driver, cannot run DR"])
         exit(1)
 
-    if 'opencl-amd' not in installed_opencl_drivers not in installed_opencl_drivers:
+    if 'opencl-amd' not in installed_opencl_drivers and 'rocm-opencl-runtime' not in installed_opencl_drivers:
         print(local_str["missing opencl driver"])
         exit(1)
 
