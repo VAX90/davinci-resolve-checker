@@ -132,14 +132,6 @@ if found_AMD_GPU:
         print(local_str["not running amdgpu driver, cannot run DR"])
         exit(1)
 
-    if GL_VENDOR != "Advanced Micro Devices, Inc.":
-        # Note: If you run "progl glmark2", you see there "GL_VENDOR:     ATI Technologies Inc.",
-        # but if you run "progl glxinfo", you always get "OpenGL vendor string: Advanced Micro Devices, Inc."
-        # independently of you use X or Wayland; I+A, A+I or just AMD gpu in system.
-        # So we check if it is "Advanced Micro Devices, Inc.".
-        print(local_str["not using Pro OpenGL"])
-        exit(1)
-
     if 'opencl-amd' not in installed_opencl_drivers not in installed_opencl_drivers:
         print(local_str["missing opencl driver"])
         exit(1)

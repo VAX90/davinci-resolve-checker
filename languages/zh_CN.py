@@ -23,7 +23,6 @@ local_str = {
     "switch from radeon driver to amdgpu": "您当前正在使用RADEON驱动程序。请参照ArchWiki将驱动程序切换到amdgpu：https://wiki.archlinux.org/title/AMDGPU#Enable_Southern_Islands_(SI)_and_Sea_Islands_(CIK)_support。否则您将无法运行达芬奇。",
     "no support for amd driver, cannot run DR": "您的GPU仅支持radeon驱动程序。达芬奇需要使用amdgpu progl才能运行，因为它只能与amdgpu驱动一起使用。因此，您无法运行达芬奇。",
     "not running amdgpu driver, cannot run DR": "出于某种原因，您没有运行amdgpu驱动程序。 您无法运行达芬奇。",
-    "not using Pro OpenGL": "您没有使用Pro OpenGL。请安装amdgpu-pro-libgl并在运行达芬奇的时候使用progl前缀运行。否则程序可能会闪退或无法运行。",
     "missing opencl driver": "您的计算机没有用于AMD显卡的opencl驱动程序。请安装该驱动程序，否则您无法使用达芬奇。",
     "good to run DR": "恭喜您，您可以正常使用达芬奇了！",
     "missing opencl-nvidia package": "您没有opencl-nvidia包（或提供opencl-nvidia的替代包）。请务必安装它，否则您将无法使用达芬奇。即使您打算使用cuda，opencl-nvidia也是其必需的依赖项。",
