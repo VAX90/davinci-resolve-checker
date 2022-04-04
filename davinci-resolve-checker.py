@@ -33,49 +33,6 @@ if dependencies_check.returncode != 0:
 installed_dr_package = subprocess.run("expac -Qs '%n %v' davinci-resolve", shell=True, capture_output=True, text=True).stdout.rstrip('\n')
 print(local_str["which DR package"], installed_dr_package)
 
-chassis_types = {
-    # Taken from spec 3.5.0, see here: https://superuser.com/a/1107191/873855
-    "1": "Other",
-    "2": "Unknown",
-    "3": "Desktop",
-    "4": "Low Profile Desktop",
-    "5": "Pizza Box",
-    "6": "Mini Tower",
-    "7": "Tower",
-    "8": "Portable",
-    "9": "Laptop",
-    "10": "Notebook",
-    "11": "Hand Held",
-    "12": "Docking Station",
-    "13": "All in One",
-    "14": "Sub Notebook",
-    "15": "Space-saving",
-    "16": "Lunch Box",
-    "17": "Main Server Chassis",
-    "18": "Expansion Chassis",
-    "19": "SubChassis",
-    "20": "Bus Expansion Chassis",
-    "21": "Peripheral Chassis",
-    "22": "RAID Chassis",
-    "23": "Rack Mount Chassis",
-    "24": "Sealed-case PC",
-    "25": "Multi-system chassis",
-    "26": "Compact PCI",
-    "27": "Advanced TCA",
-    "28": "Blade",
-    "29": "Blade Enclosure",
-    "30": "Tablet",
-    "31": "Convertible",
-    "32": "Detachable",
-    "33": "IoT Gateway",
-    "34": "Embedded PC",
-    "35": "Mini PC",
-    "36": "Stick PC"
-}
-
-with open("/sys/class/dmi/id/chassis_type", 'r') as file:
-    chassis_type = chassis_types[file.read().rstrip()]
-
 installed_opencl_drivers = subprocess.run("expac -Qs '%n' opencl-driver", shell=True, capture_output=True, text=True).stdout.splitlines()
 installed_opencl_nvidia_package = subprocess.run("expac -Qs '%n' opencl-nvidia", shell=True, capture_output=True, text=True).stdout.rstrip('\n')
 
@@ -87,11 +44,6 @@ else:
     with open("lspci_dumps/optimus_laptop_no_any_driver_for_nvidia.bin", "rb") as fp:   # Unpickling.
         lspci_devices = pickle.load(fp)
 
-print(local_str["chassis"], local_str.get(chassis_type, chassis_type))
-supported_chassis_types = ["Desktop", "Laptop", "Notebook", "Space-saving"]
-if chassis_type not in supported_chassis_types:
-    print(local_str["unsupported chassis"])
-    exit(1)
 print(local_str["openCL drivers"], " ".join([str(x) for x in installed_opencl_drivers]))
 
 # Now we are going to check which GPUs are presented in system.
