@@ -17,7 +17,6 @@ local_str = {
     "amd gpu binded to vfio-pci": "Ваша видеокарта от amd привязана к драйверу vfio-pci, убираем её из дальнейших проверок.",
     "nvidia gpu binded to vfio-pci": "Ваша видеокарта от nvidia привязана к драйверу vfio-pci, убираем её из дальнейших проверок.",
     "only intel gpu, cannot run DR": "У вас есть только видеокарта от Intel. На данный момент DR не умеет использовать intel видеокарты для OpenCL. Вы не сможете запустить DR. См. https://forum.blackmagicdesign.com/viewtopic.php?f=21&t=81579",
-    "set primary display to PCIE": "Ваша основная видеокарта - Intel. Перейдите в настройки uefi и назначьте первичную видеокарту на PCIE. Иначе вы не сможете использовать DaVinci Resolve (я это не тестировал).",
     "switch from radeon driver to amdgpu": "Вы сейчас используете драйвер radeon. Переключитесь на amdgpu, как описано тут: https://wiki.archlinux.org/title/AMDGPU#Enable_Southern_Islands_(SI)_and_Sea_Islands_(CIK)_support. Иначе вы не сможете запустить DaVinci Resolve.",
     "no support for amd driver, cannot run DR": "Ваша видеокарта поддерживает лишь драйвер radeon. Для DaVinci Resolve нужен проприетарный драйвер amdgpu progl, который работает поверх драйвера amdgpu. Вы не сможете запустить DaVinci Resolve.",
     "not running amdgpu driver, cannot run DR": "Почему-то вы не используете amdgpu драйвер. Вы не сможете запустить DaVinci Resolve.",

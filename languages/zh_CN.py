@@ -18,7 +18,6 @@ local_str = {
     "amd gpu binded to vfio-pci": "您的AMD显卡已绑定到 vfio-pci，将不再进行进一步检查。",
     "nvidia gpu binded to vfio-pci": "您的NVIDIA显卡已绑定到 vfio-pci，将不再进行进一步检查。",
     "only intel gpu, cannot run DR": "您只有英特尔显卡。目前达芬奇无法将英特尔显卡用于OpenCL。因此您不能运行达芬奇。详情请参考https://forum.blackmagicdesign.com/viewtopic.php?f=21&t=81579",
-    "set primary display to PCIE": "检测到您的主显卡是英特尔。您可以在UEFI设置中将主显示器设置为PCIE。否则您将无法使用DaVinci Resolve（尚未测试）。",
     "switch from radeon driver to amdgpu": "您当前正在使用RADEON驱动程序。请参照ArchWiki将驱动程序切换到amdgpu：https://wiki.archlinux.org/title/AMDGPU#Enable_Southern_Islands_(SI)_and_Sea_Islands_(CIK)_support。否则您将无法运行达芬奇。",
     "no support for amd driver, cannot run DR": "您的GPU仅支持radeon驱动程序。达芬奇需要使用amdgpu progl才能运行，因为它只能与amdgpu驱动一起使用。因此，您无法运行达芬奇。",
     "not running amdgpu driver, cannot run DR": "出于某种原因，您没有运行amdgpu驱动程序。 您无法运行达芬奇。",

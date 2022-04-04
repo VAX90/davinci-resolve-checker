@@ -114,11 +114,6 @@ if not found_AMD_GPU and not found_NVIDIA_GPU and found_INTEL_GPU:
     exit(1)
 
 if found_AMD_GPU:
-    if found_INTEL_GPU:
-        if GL_VENDOR == "Intel":
-            print(local_str["set primary display to PCIE"])
-            exit(1)
-
     if found_AMD_GPU.driver != 'amdgpu':
         if found_AMD_GPU.driver == 'radeon':
             if 'amdgpu' in found_AMD_GPU.kernel_modules and 'radeon' in found_AMD_GPU.kernel_modules:
